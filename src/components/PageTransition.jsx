@@ -1,0 +1,46 @@
+import { motion } from 'framer-motion';
+
+/**
+ * PageTransition — Wraps a page with enter/exit animations via AnimatePresence.
+ * Use as: <PageTransition><YourPageContent /></PageTransition>
+ */
+
+const variants = {
+  initial: {
+    opacity: 0,
+    y: 16,
+    filter: 'blur(4px)',
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: {
+      duration: 0.4,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -8,
+    filter: 'blur(4px)',
+    transition: {
+      duration: 0.25,
+      ease: [0.4, 0, 1, 1],
+    },
+  },
+};
+
+export default function PageTransition({ children, className = '' }) {
+  return (
+    <motion.div
+      variants={variants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}

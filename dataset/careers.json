@@ -1,0 +1,226 @@
+[
+  {
+    "id": "c001",
+    "title": "Data Analyst",
+    "emoji": "📊",
+    "description": "Transforms raw data into actionable business insights using statistical analysis and visualisation tools.",
+    "industry": "Technology / Business Intelligence",
+    "requiredSkills": [
+      "Python",
+      "Data Analysis",
+      "Data Visualisation",
+      "SQL",
+      "Statistics"
+    ],
+    "preferredSkills": [
+      "Machine Learning",
+      "Tableau",
+      "Power BI",
+      "Excel",
+      "R"
+    ],
+    "evidenceTypes": [
+      "data projects",
+      "analysis portfolios",
+      "SQL assessments"
+    ],
+    "salaryRange": "£28,000 – £55,000",
+    "growth": "High"
+  },
+  {
+    "id": "c002",
+    "title": "Software Developer",
+    "emoji": "💻",
+    "description": "Designs, builds and maintains software systems and applications using modern programming languages and frameworks.",
+    "industry": "Technology",
+    "requiredSkills": [
+      "Python",
+      "JavaScript",
+      "Problem Solving",
+      "Version Control",
+      "Algorithms"
+    ],
+    "preferredSkills": [
+      "React",
+      "Node.js",
+      "Docker",
+      "REST APIs",
+      "Testing"
+    ],
+    "evidenceTypes": [
+      "coding projects",
+      "GitHub portfolio",
+      "hackathon participation"
+    ],
+    "salaryRange": "£32,000 – £70,000",
+    "growth": "High"
+  },
+  {
+    "id": "c003",
+    "title": "UX Designer",
+    "emoji": "🎨",
+    "description": "Creates intuitive, accessible digital experiences through user research, wireframing and iterative design.",
+    "industry": "Design / Technology",
+    "requiredSkills": [
+      "UI/UX Design",
+      "User Research",
+      "Wireframing",
+      "Prototyping",
+      "Figma"
+    ],
+    "preferredSkills": [
+      "HTML/CSS",
+      "Accessibility",
+      "Design Systems",
+      "User Testing",
+      "Motion Design"
+    ],
+    "evidenceTypes": [
+      "design portfolios",
+      "usability studies",
+      "wireframe projects"
+    ],
+    "salaryRange": "£28,000 – £60,000",
+    "growth": "Medium-High"
+  },
+  {
+    "id": "c004",
+    "title": "Cybersecurity Analyst",
+    "emoji": "🔐",
+    "description": "Protects digital systems and networks by identifying vulnerabilities, monitoring threats and implementing security measures.",
+    "industry": "Technology / Security",
+    "requiredSkills": [
+      "Network Security",
+      "Threat Analysis",
+      "Linux",
+      "Python",
+      "Risk Assessment"
+    ],
+    "preferredSkills": [
+      "Penetration Testing",
+      "SIEM Tools",
+      "Cryptography",
+      "Incident Response",
+      "Compliance"
+    ],
+    "evidenceTypes": [
+      "CTF competitions",
+      "security audits",
+      "network projects"
+    ],
+    "salaryRange": "£35,000 – £75,000",
+    "growth": "Very High"
+  },
+  {
+    "id": "c005",
+    "title": "Machine Learning Engineer",
+    "emoji": "🤖",
+    "description": "Builds and deploys machine learning models and AI systems that power intelligent applications.",
+    "industry": "Technology / AI",
+    "requiredSkills": [
+      "Python",
+      "Machine Learning",
+      "Statistics",
+      "Data Analysis",
+      "Algorithms"
+    ],
+    "preferredSkills": [
+      "TensorFlow",
+      "PyTorch",
+      "MLOps",
+      "Cloud Platforms",
+      "Feature Engineering"
+    ],
+    "evidenceTypes": [
+      "ML projects",
+      "Kaggle competitions",
+      "research papers"
+    ],
+    "salaryRange": "£45,000 – £95,000",
+    "growth": "Very High"
+  },
+  {
+    "id": "c006",
+    "title": "Digital Marketing Analyst",
+    "emoji": "📈",
+    "description": "Drives business growth through data-informed digital campaigns, SEO strategy and performance analytics.",
+    "industry": "Marketing / Business",
+    "requiredSkills": [
+      "Data Analysis",
+      "Marketing Strategy",
+      "Communication",
+      "Statistics",
+      "Content Creation"
+    ],
+    "preferredSkills": [
+      "SEO",
+      "Google Analytics",
+      "Social Media",
+      "A/B Testing",
+      "CRM Systems"
+    ],
+    "evidenceTypes": [
+      "campaign projects",
+      "analytics reports",
+      "content portfolios"
+    ],
+    "salaryRange": "£24,000 – £50,000",
+    "growth": "Medium"
+  },
+  {
+    "id": "c007",
+    "title": "Cloud Solutions Architect",
+    "emoji": "☁️",
+    "description": "Designs scalable, secure cloud infrastructure and guides organisations through digital transformation.",
+    "industry": "Technology / Cloud",
+    "requiredSkills": [
+      "Cloud Platforms",
+      "Network Security",
+      "Linux",
+      "Problem Solving",
+      "System Design"
+    ],
+    "preferredSkills": [
+      "AWS",
+      "Azure",
+      "Terraform",
+      "Docker",
+      "Kubernetes"
+    ],
+    "evidenceTypes": [
+      "cloud deployment projects",
+      "architecture designs",
+      "certifications"
+    ],
+    "salaryRange": "£55,000 – £110,000",
+    "growth": "Very High"
+  },
+  {
+    "id": "c008",
+    "title": "Biomedical Data Scientist",
+    "emoji": "🧬",
+    "description": "Applies data science and bioinformatics to analyse biological datasets and support medical research.",
+    "industry": "Healthcare / Science",
+    "requiredSkills": [
+      "Python",
+      "Statistics",
+      "Data Analysis",
+      "Research Methods",
+      "Machine Learning"
+    ],
+    "preferredSkills": [
+      "R",
+      "Bioinformatics",
+      "Clinical Data",
+      "Genomics",
+      "Scientific Writing"
+    ],
+    "evidenceTypes": [
+      "research projects",
+      "biology coursework",
+      "data analysis portfolios"
+    ],
+    "salaryRange": "£32,000 – £65,000",
+    "growth": "High"
+  }
+]
