@@ -13,9 +13,13 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
+  MessageSquare,
+  Key,
+  Activity,
+  BarChart2,
 } from 'lucide-react';
 
-const NAV_ITEMS = [
+const NAV_ITEMS_PHASE1 = [
   { to: '/',              icon: LayoutDashboard, label: 'Overview' },
   { to: '/students',      icon: Users,           label: 'Students' },
   { to: '/evidence',      icon: FileCheck,       label: 'Evidence' },
@@ -24,6 +28,13 @@ const NAV_ITEMS = [
   { to: '/recommendations', icon: Star,          label: 'Recommendations' },
   { to: '/review',        icon: ShieldCheck,     label: 'Human Review' },
   { to: '/tradeoff',      icon: Scale,           label: 'Stakeholder Trade-off' },
+];
+
+const NAV_ITEMS_PHASE2 = [
+  { to: '/feedback',      icon: MessageSquare,   label: 'Stakeholder Feedback' },
+  { to: '/access',        icon: Key,             label: 'Access Control' },
+  { to: '/health',        icon: Activity,        label: 'Health Monitor' },
+  { to: '/metrics',       icon: BarChart2,       label: 'Baseline Metrics' },
 ];
 
 export default function Sidebar() {
@@ -58,7 +69,7 @@ export default function Sidebar() {
 
       {/* Navigation Links */}
       <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-1">
-        {NAV_ITEMS.map((item) => {
+        {NAV_ITEMS_PHASE1.map((item) => {
           const isActive = location.pathname === item.to ||
             (item.to !== '/' && location.pathname.startsWith(item.to));
 
@@ -114,6 +125,79 @@ export default function Sidebar() {
                   <motion.div
                     className="absolute right-2 w-1.5 h-1.5 rounded-full bg-brand-400"
                     layoutId="activeDot"
+                  />
+                )}
+              </motion.div>
+            </NavLink>
+          );
+        })}
+
+        {/* Phase 2 Divider */}
+        <AnimatePresence>
+          {!collapsed && (
+            <motion.div
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              className="px-3 pt-3 pb-1">
+              <p className="text-[10px] font-semibold text-purple-400/60 uppercase tracking-widest">Phase 2</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        {collapsed && <div className="my-1 mx-auto w-6 h-px bg-white/10" />}
+
+        {NAV_ITEMS_PHASE2.map((item) => {
+          const isActive = location.pathname === item.to ||
+            (item.to !== '/' && location.pathname.startsWith(item.to));
+
+          return (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className="block"
+            >
+              <motion.div
+                className={`
+                  relative flex items-center gap-3 px-3 py-2.5 rounded-xl
+                  transition-colors duration-200 group
+                  ${isActive
+                    ? 'text-white'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
+                  }
+                `}
+                whileHover={{ x: 3 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.15 }}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNav2"
+                    className="absolute inset-0 rounded-xl bg-purple-500/10 border border-purple-500/20"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+
+                <item.icon
+                  size={20}
+                  className={`relative z-10 shrink-0 ${isActive ? 'text-purple-400' : ''}`}
+                />
+
+                <AnimatePresence>
+                  {!collapsed && (
+                    <motion.span
+                      className="relative z-10 text-sm font-medium whitespace-nowrap"
+                      initial={{ opacity: 0, x: -5 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -5 }}
+                      transition={{ duration: 0.15 }}
+                    >
+                      {item.label}
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+
+                {isActive && collapsed && (
+                  <motion.div
+                    className="absolute right-2 w-1.5 h-1.5 rounded-full bg-purple-400"
+                    layoutId="activeDot2"
                   />
                 )}
               </motion.div>

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Sidebar from './components/Sidebar.jsx';
 import TopBar from './components/TopBar.jsx';
 
-// Pages — lazy-like but synchronous imports for prototype
+// Phase 1 pages
 import Overview from './pages/Overview.jsx';
 import Students from './pages/Students.jsx';
 import StudentDetail from './pages/StudentDetail.jsx';
@@ -15,6 +15,12 @@ import CareerExplorer from './pages/CareerExplorer.jsx';
 import Recommendations from './pages/Recommendations.jsx';
 import HumanReview from './pages/HumanReview.jsx';
 import StakeholderTradeoff from './pages/StakeholderTradeoff.jsx';
+
+// Phase 2 pages
+import StakeholderFeedback from './pages/StakeholderFeedback.jsx';
+import AccessControl from './pages/AccessControl.jsx';
+import OperationalHealth from './pages/OperationalHealth.jsx';
+import BaselineMetrics from './pages/BaselineMetrics.jsx';
 
 export default function App() {
   const location = useLocation();
@@ -40,15 +46,22 @@ export default function App() {
         <main className="p-6">
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Overview />} />
-              <Route path="/students" element={<Students />} />
-              <Route path="/students/:id" element={<StudentDetail />} />
-              <Route path="/evidence" element={<Evidence />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/careers" element={<CareerExplorer />} />
+              {/* Phase 1 */}
+              <Route path="/"              element={<Overview />} />
+              <Route path="/students"      element={<Students />} />
+              <Route path="/students/:id"  element={<StudentDetail />} />
+              <Route path="/evidence"      element={<Evidence />} />
+              <Route path="/skills"        element={<Skills />} />
+              <Route path="/careers"       element={<CareerExplorer />} />
               <Route path="/recommendations" element={<Recommendations />} />
-              <Route path="/review" element={<HumanReview />} />
-              <Route path="/tradeoff" element={<StakeholderTradeoff />} />
+              <Route path="/review"        element={<HumanReview />} />
+              <Route path="/tradeoff"      element={<StakeholderTradeoff />} />
+
+              {/* Phase 2 */}
+              <Route path="/feedback"      element={<StakeholderFeedback />} />
+              <Route path="/access"        element={<AccessControl />} />
+              <Route path="/health"        element={<OperationalHealth />} />
+              <Route path="/metrics"       element={<BaselineMetrics />} />
             </Routes>
           </AnimatePresence>
         </main>
