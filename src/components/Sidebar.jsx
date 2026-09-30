@@ -17,6 +17,10 @@ import {
   Key,
   Activity,
   BarChart2,
+  GitPullRequest,
+  Layers,
+  Lock,
+  TrendingUp,
 } from 'lucide-react';
 
 const NAV_ITEMS_PHASE1 = [
@@ -35,6 +39,13 @@ const NAV_ITEMS_PHASE2 = [
   { to: '/access',        icon: Key,             label: 'Access Control' },
   { to: '/health',        icon: Activity,        label: 'Health Monitor' },
   { to: '/metrics',       icon: BarChart2,       label: 'Baseline Metrics' },
+];
+
+const NAV_ITEMS_PHASE3 = [
+  { to: '/ingestion',     icon: GitPullRequest,  label: 'Automated Ingestion' },
+  { to: '/semantic',      icon: Layers,          label: 'Semantic Rubric' },
+  { to: '/compliance',    icon: Lock,            label: 'Compliance & Audit' },
+  { to: '/telemetry',     icon: TrendingUp,      label: 'Market Telemetry' },
 ];
 
 export default function Sidebar() {
@@ -198,6 +209,79 @@ export default function Sidebar() {
                   <motion.div
                     className="absolute right-2 w-1.5 h-1.5 rounded-full bg-purple-400"
                     layoutId="activeDot2"
+                  />
+                )}
+              </motion.div>
+            </NavLink>
+          );
+        })}
+
+        {/* Phase 3 Divider */}
+        <AnimatePresence>
+          {!collapsed && (
+            <motion.div
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              className="px-3 pt-3 pb-1">
+              <p className="text-[10px] font-semibold text-accent-cyan/80 uppercase tracking-widest">Phase 3 Enterprise</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        {collapsed && <div className="my-1 mx-auto w-6 h-px bg-white/10" />}
+
+        {NAV_ITEMS_PHASE3.map((item) => {
+          const isActive = location.pathname === item.to ||
+            (item.to !== '/' && location.pathname.startsWith(item.to));
+
+          return (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className="block"
+            >
+              <motion.div
+                className={`
+                  relative flex items-center gap-3 px-3 py-2.5 rounded-xl
+                  transition-colors duration-200 group
+                  ${isActive
+                    ? 'text-white'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
+                  }
+                `}
+                whileHover={{ x: 3 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.15 }}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNav3"
+                    className="absolute inset-0 rounded-xl bg-accent-cyan/10 border border-accent-cyan/25"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+
+                <item.icon
+                  size={20}
+                  className={`relative z-10 shrink-0 ${isActive ? 'text-accent-cyan' : ''}`}
+                />
+
+                <AnimatePresence>
+                  {!collapsed && (
+                    <motion.span
+                      className="relative z-10 text-sm font-medium whitespace-nowrap"
+                      initial={{ opacity: 0, x: -5 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -5 }}
+                      transition={{ duration: 0.15 }}
+                    >
+                      {item.label}
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+
+                {isActive && collapsed && (
+                  <motion.div
+                    className="absolute right-2 w-1.5 h-1.5 rounded-full bg-accent-cyan"
+                    layoutId="activeDot3"
                   />
                 )}
               </motion.div>

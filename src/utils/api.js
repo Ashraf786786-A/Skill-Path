@@ -79,6 +79,56 @@ export const submitFeedback          = (data) => apiFetch('/feedback', {
 }, true);
 
 // ---------------------------------------------------------------------------
+// Phase 3 — Automated Ingestion (Classroom & LMS)
+// ---------------------------------------------------------------------------
+export const fetchIngestionSummary   = ()   => apiFetch('/ingestion/summary');
+export const fetchIngestionEvents    = (limit = 50) => apiFetch(`/ingestion/events?limit=${limit}`);
+export const simulateIngestion       = (data) => apiFetch('/ingestion/simulate', {
+  method: 'POST',
+  body: JSON.stringify(data),
+}, true);
+export const triggerLtiSync          = ()   => apiFetch('/ingestion/lti/sync', { method: 'POST' });
+
+// ---------------------------------------------------------------------------
+// Phase 3 — Semantic Intelligence
+// ---------------------------------------------------------------------------
+export const fetchSemanticModels     = ()   => apiFetch('/semantic/models');
+export const extractSemanticRubric   = (data) => apiFetch('/semantic/extract', {
+  method: 'POST',
+  body: JSON.stringify(data),
+});
+export const batchAnalyzeCohort      = ()   => apiFetch('/semantic/batch-analyze', {
+  method: 'POST',
+}, true);
+
+// ---------------------------------------------------------------------------
+// Phase 3 — Enterprise Compliance & Cryptographic Audit
+// ---------------------------------------------------------------------------
+export const fetchAuditLedger        = ()   => apiFetch('/compliance/audit-ledger', {}, true);
+export const verifyAuditLedger       = ()   => apiFetch('/compliance/verify-ledger', { method: 'POST' });
+export const simulateTamperAttack    = ()   => apiFetch('/compliance/tamper-test', { method: 'POST' });
+export const restoreAuditLedger      = ()   => apiFetch('/compliance/restore-ledger', { method: 'POST' });
+export const simulateSamlLogin       = (data) => apiFetch('/compliance/sso/login', {
+  method: 'POST',
+  body: JSON.stringify(data),
+});
+export const exportFerpaDossier      = (studentId) => apiFetch(`/compliance/export-dossier/${studentId}`, {
+  method: 'POST',
+}, true);
+export const anonymizeStudent        = (studentId) => apiFetch(`/compliance/anonymize/${studentId}`, {
+  method: 'POST',
+}, true);
+
+// ---------------------------------------------------------------------------
+// Phase 3 — Labor Market Telemetry (Lightcast & O*NET)
+// ---------------------------------------------------------------------------
+export const fetchMarketDemand       = ()   => apiFetch('/telemetry/market-demand');
+export const fetchStudentMarketGap   = (studentId, careerId) => {
+  const url = careerId ? `/telemetry/market-gap/${studentId}?career_id=${careerId}` : `/telemetry/market-gap/${studentId}`;
+  return apiFetch(url);
+};
+
+// ---------------------------------------------------------------------------
 // Unified api object
 // ---------------------------------------------------------------------------
 export const api = {
@@ -111,6 +161,30 @@ export const api = {
   getFeedback:        fetchFeedback,
   getFeedbackAggregate: fetchFeedbackAggregate,
   submitFeedback,
+
+  // Phase 3 — Automated Ingestion
+  getIngestionSummary: fetchIngestionSummary,
+  getIngestionEvents:  fetchIngestionEvents,
+  simulateIngestion,
+  triggerLtiSync,
+
+  // Phase 3 — Semantic Intelligence
+  getSemanticModels:   fetchSemanticModels,
+  extractSemanticRubric,
+  batchAnalyzeCohort,
+
+  // Phase 3 — Enterprise Compliance
+  getAuditLedger:      fetchAuditLedger,
+  verifyAuditLedger,
+  simulateTamperAttack,
+  restoreAuditLedger,
+  simulateSamlLogin,
+  exportFerpaDossier,
+  anonymizeStudent,
+
+  // Phase 3 — Labor Market Telemetry
+  getMarketDemand:     fetchMarketDemand,
+  getStudentMarketGap: fetchStudentMarketGap,
 };
 
 export default api;

@@ -22,6 +22,12 @@ import AccessControl from './pages/AccessControl.jsx';
 import OperationalHealth from './pages/OperationalHealth.jsx';
 import BaselineMetrics from './pages/BaselineMetrics.jsx';
 
+// Phase 3 pages
+import AutomatedIngestion from './pages/AutomatedIngestion.jsx';
+import SemanticIntelligence from './pages/SemanticIntelligence.jsx';
+import EnterpriseCompliance from './pages/EnterpriseCompliance.jsx';
+import LaborMarketTelemetry from './pages/LaborMarketTelemetry.jsx';
+
 export default function App() {
   const location = useLocation();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -62,6 +68,12 @@ export default function App() {
               <Route path="/access"        element={<AccessControl />} />
               <Route path="/health"        element={<OperationalHealth />} />
               <Route path="/metrics"       element={<BaselineMetrics />} />
+
+              {/* Phase 3 */}
+              <Route path="/ingestion"     element={<AutomatedIngestion />} />
+              <Route path="/semantic"      element={<SemanticIntelligence />} />
+              <Route path="/compliance"    element={<EnterpriseCompliance />} />
+              <Route path="/telemetry"     element={<LaborMarketTelemetry />} />
             </Routes>
           </AnimatePresence>
         </main>
